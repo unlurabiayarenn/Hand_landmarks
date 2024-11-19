@@ -1,3 +1,4 @@
+
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -5,9 +6,6 @@ import numpy as np
 # Mediapipe Hand Tracking modülü
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
-
-# Landmark ve bağlantılar için siyah renk
-drawing_spec_black = mp_drawing.DrawingSpec(color=(0, 0, 0), thickness=2, circle_radius=2)
 
 # Renk kutuları (HSV eşikleri ile birlikte)
 colors = [
@@ -19,7 +17,7 @@ colors = [
 
 selected_color = None
 selected_color_name = None
-correct_color_detected = False  # Doğru renk algılandı mı?
+selected_box_coords = None  # Seçilen kutunun koordinatları
 
 # Kamera başlatma
 cap = cv2.VideoCapture(0)
@@ -52,34 +50,26 @@ with mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7) a
 
         if result.multi_hand_landmarks:
             for hand_landmarks in result.multi_hand_landmarks:
-                # El landmarklarını siyah yap
-                mp_drawing.draw_landmarks(
-                    frame,
-                    hand_landmarks,
-                    mp_hands.HAND_CONNECTIONS,
-                    landmark_drawing_spec=drawing_spec_black,
-                    connection_drawing_spec=drawing_spec_black
-                )
+                mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
                 # İşaret parmağının ucu (8. landmark)
                 x_index = int(hand_landmarks.landmark[8].x * w)
                 y_index = int(hand_landmarks.landmark[8].y * h)
 
-                # İşaret parmağının ucuna siyah daire ekle
-                cv2.circle(frame, (x_index, y_index), 10, (0, 0, 0), -1)  # Siyah daire
+                # İşaret parmağının ucuna daire ekle
+                cv2.circle(frame, (x_index, y_index), 10, (0, 0, 255), -1)  # Kırmızı daire
+                cv2.circle(frame, (x_index, y_index), 15, (255, 255, 255), 2)  # Beyaz kontur
 
-                # Parmağın renk kutusunda olup olmadığını kontrol et
+                # Parmağın renk seçme bölgesinde olup olmadığını kontrol et
                 for i, color in enumerate(colors):
                     x1 = i * box_width
                     y1 = 0
                     x2 = (i + 1) * box_width
                     y2 = box_height
                     if x1 < x_index < x2 and y1 < y_index < y2:
-                        # Sadece renk değiştir
-                        if selected_color_name != color["name"]:
-                            selected_color = color
-                            selected_color_name = color["name"]
-                            correct_color_detected = False  # Seçimde uyarıyı kapat
+                        selected_color = color
+                        selected_color_name = color["name"]
+                        selected_box_coords = (x1, y1, x2, y2)  # Seçilen kutunun koordinatları
                         break
 
         # Eğer bir renk seçildiyse, ekrandaki o renk nesnelerini algıla
@@ -95,7 +85,6 @@ with mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7) a
             # Konturları bul
             contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-            correct_color_detected = False  # Algılama başında sıfırla
             for contour in contours:
                 if cv2.contourArea(contour) > 500:  # Minimum alan filtresi
                     x, y, w, h = cv2.boundingRect(contour)
@@ -103,11 +92,8 @@ with mp_hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7) a
 
                     # İşaret parmağının çerçeveyle kesişip kesişmediğini kontrol et
                     if x < x_index < x + w and y < y_index < y + h:
-                        correct_color_detected = True  # Doğru renk algılandıysa uyarıyı etkinleştir
-
-        # Doğru renk algılandıysa mesaj göster
-        if correct_color_detected:
-            cv2.putText(frame, "DOĞRU RENK", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                        # Eğer çerçeveyle kesişiyorsa, doğru renk mesajını ekle
+                        cv2.putText(frame, "DOĞRU RENK", (50, h // 2), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 5)
 
         cv2.imshow("Color Selection", frame)
 
