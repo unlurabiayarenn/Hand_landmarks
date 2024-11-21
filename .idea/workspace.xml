@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b9e574b-8826-4512-8479-b86e6ccfc7ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/detected.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/file" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sanalYansimaProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sanalYansimaProject.iml" afterDir="false" />
+    <list default="true" id="8b9e574b-8826-4512-8479-b86e6ccfc7ab" name="Changes" comment="some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detectedColors.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectedColors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file" beforeDir="false" afterPath="$PROJECT_DIR$/file" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noTouchVirtual.py" beforeDir="false" afterPath="$PROJECT_DIR$/noTouchVirtual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanalYansima.py" beforeDir="false" afterPath="$PROJECT_DIR$/sanalYansima.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +79,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731350972214</updated>
-      <workItem from="1731350973598" duration="20328000" />
+      <workItem from="1731350973598" duration="32240000" />
     </task>
+    <task id="LOCAL-00001" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1732030682249</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732030682249</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,10 +106,14 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sanalYansimaProject$detected.coverage" NAME="detected Coverage Results" MODIFIED="1732026917599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/sanalYansimaProject$detectedColors.coverage" NAME="detectedColors Coverage Results" MODIFIED="1732030600323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sanalYansimaProject$detectedColors.coverage" NAME="detectedColors Coverage Results" MODIFIED="1732186431247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sanalYansimaProject$sanalYansima.coverage" NAME="sanalYansima Coverage Results" MODIFIED="1731671470230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/sanalYansimaProject$noTouchVirtual.coverage" NAME="noTouchVirtual Coverage Results" MODIFIED="1731361736381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sanalYansimaProject$noTouchVirtual.coverage" NAME="noTouchVirtual Coverage Results" MODIFIED="1732183174408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
